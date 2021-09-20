@@ -18,7 +18,7 @@ def obscured_signal():
     plt.ylabel('Amplitude')
     plt.title("True Signal obscured by noise")
     plt.legend()
-    plt.show() 
+    plt.show()
     # fig = plt.figure()
     # return fig
 
