@@ -30,14 +30,26 @@ line_1(x) = (1-x)/r_1
 line_3(x) = 1 - r_3*x
 line_4(x) = (1+(α-1)*x)/r_4
 
-plot([line_1, line_3, line_4], 
-      0, 1,
-      ylim=(0, 1.2), 
-      xlim=(0, 1.2), 
-      xlabel="Deposits", 
-      ylabel="Loans")
+plot1 = plot([line_1, line_3, line_4], 
+              0, 1,
+              ylim=(0, 1.2), 
+              xlim=(0, 1.2), 
+              label="Deposits", 
+              ylabel="Loans")
+      
+plot1 = plot!([1-r_2], seriestype="vline")
+plot1 = annotate!(1-r_2, 0, text("$(1-r_2)"))
 
-plot!([1-r_2], seriestype="vline")
-annotate!(1-r_2, 0, text("$(1-r_2)"))
+savefig(plot1, "state_space.png")
 
-    
+optimize!(m)
+
+println(getvalue(L))
+println(getvalue(D))
+
+println("optimal solution occurs at: ", round(objective_value(m), digits=5), "\n")
+println("Loans: ", round(getvalue(L)*100, sigdigits=3), "%")
+println("liquidity reserves: ", round((100 - getvalue(L)*100), sigdigits=3), "%")
+println("\n")
+println("Deposits: ", round(getvalue(D)*100, sigdigits=3), "%")
+println("Capital: ", round((100 - getvalue(D)*100), sigdigits=3), "%")
