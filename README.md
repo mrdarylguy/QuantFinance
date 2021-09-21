@@ -10,6 +10,7 @@ These include
 ![image](https://user-images.githubusercontent.com/42925677/134178922-22215570-f781-4a23-8e4b-9707255447da.png)
 
 - Portfolio Optimization
-![state_space](https://user-images.githubusercontent.com/42925677/134199672-d1f71c4a-8088-47de-a782-e71d59cdc37b.png)
+![state_space](https://user-images.githubusercontent.com/42925677/134199937-5270a83a-1aec-44ea-aca7-6de2b243c4d5.png)
+
 
 
