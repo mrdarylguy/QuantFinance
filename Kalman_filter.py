@@ -13,9 +13,10 @@ class Kalman:
 
     def see_stock(self):
         data = self.ticker.history(period='max')
-        data['Close'].plot(title='TSLA stock price ($)')
-        plot = plt.figure()
-        return plot
+        plt.plot(data['Close'])
+        plt.title("TSLA price history ($)")
+        plt.figure()
+        plt.show()
 
     def period_of_interest(self):
         self.data = yf.download('TSLA', 
@@ -23,11 +24,9 @@ class Kalman:
                             end='2019-12-31',
                             progress=False)
 
-        
-        plt.figure(figsize=(15,5))
         self.data['Close'].plot(grid=True)
         plt.ylabel('Price ($)')
-        plt.title('Tesla Price ($)')
+        plt.title('Period of interest: TSLA', fontsize=8)
         plot = plt.figure()
         return plot
 
@@ -42,11 +41,36 @@ class Kalman:
         mean, cov = kf.filter(self.data['Close'].values)
         mean, std = mean.squeeze(), np.std(cov.squeeze())
 
+        plt.plot(self.data['Close'].values - mean, 'red', lw=1.5)
+        plt.title("Kalman filtered price fluctuation", fontsize=8)
+        plt.ylabel("Deviation from the mean ($)")
+        plt.xlabel("Days")
+        plt.grid()
+        plot = plt.figure(figsize=(12,6))
+        return plot
+
+    def combine_plots(self):
+        figs, axs = plt.subplots(2,1)
+        plt.tight_layout(pad=4.0)
+
+        plt.sca(axs[0])
+        plot0 = self.period_of_interest()
+
+        plt.sca(axs[1])
+        plot1 = self.kalman_filtered()
+
+        plt.show()
+
+
+
 if __name__ == "__main__":
 
     kalman = Kalman()
-    # kalman.see_stock()
+    
+    kalman.see_stock()
     kalman.period_of_interest()
+    kalman.kalman_filtered()
+    kalman.combine_plots()
 
     pass
     
