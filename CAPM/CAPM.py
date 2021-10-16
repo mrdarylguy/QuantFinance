@@ -1,12 +1,23 @@
+"""
+Example here is adapted from the book: 
+
+Eryk Lewinson - Python for Finance Cookbook 
+Over 50 recipes for applying modern Python libraries 
+to quantitative finance to analyze data 
+(2020, Packt Publishing)
+
+NOTE: If you are using a M1 Mac, you need miniforge to ensure package compatibility. 
+
+"""
 import pandas as pd
 import yfinance as yf
 import statsmodels.api as sm
 
 #Specify asset + time horzion
-risky_asset = "AMZN"
+risky_asset = "F"
 market_benchmark = "^GSPC"
-start_date = "2014-01-01"
-end_date = "2018-12-31"
+start_date = "2016-01-01"
+end_date = "2020-12-31"
 
 #import data from yfinance
 df = yf.download([risky_asset, market_benchmark],
