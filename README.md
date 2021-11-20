@@ -6,7 +6,7 @@ These include
 
 - The Fast Fourier Transform (FFT)
 - The Kalman Filter
-- Portfolio Optimization
+- Constrained Optimization
 
 <hr>
 
