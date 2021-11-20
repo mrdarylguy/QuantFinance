@@ -7,9 +7,8 @@ These include
 - The Kalman Filter
 - Portfolio Optimization
 
-```python
-pip3 install yfinance
-pip3 install pykalman
-```
+Dependencies required include ```pip3 install yfinance``` & ```pip3 install pykalman```
+
+
 
 
