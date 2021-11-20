@@ -7,9 +7,9 @@ These include
 - The Kalman Filter
 - Portfolio Optimization
 
-'''python
+```python
 pip3 install yfinance
 pip3 install pykalman
-'''
+```
 
 
