@@ -14,7 +14,6 @@ class Options():
                  cumm_PnL,
                  costs):
 
-
         self.original_underlying = orginal_underlying
         self.strike_prices = strike_prices
         self.option_prices = option_prices
@@ -23,7 +22,6 @@ class Options():
         self.PnL = PnL
         self.cumm_PnL = cumm_PnL
         self.costs = costs
-
         
         for strike, option, quantity in zip(self.strike_prices,
                                             self.option_prices,
@@ -62,9 +60,7 @@ class Options():
         plt.savefig("./options/options_plots/plot.png")
         plt.show()
 
-
 if __name__ == "__main__":
-
     _option = Options(100,
                       [120, 150, 180, 200, 220],
                       [5, 10, 15, 20, 30],
