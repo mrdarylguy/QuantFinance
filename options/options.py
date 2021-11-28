@@ -49,9 +49,7 @@ class Options():
                     linewidth=1, color='r',
                     label="Cost to purchase calls: $%s"%-(self.costs))
 
-        plt.plot(self.strike_prices, self.cumm_PnL, "-", 
-                 color="b", label="PnL",)
-                
+        plt.plot(self.strike_prices, self.cumm_PnL, "-", color="b", label="PnL",)
         plt.ylabel('Profit ($)', fontsize=10)
         plt.xlabel('Strike price ($)', fontsize=10)
         plt.title('Long Calls from $%s - $%s, Bought at underlying=$%s'%(self.strike_prices[0], 
@@ -61,7 +59,7 @@ class Options():
 
         plt.legend(loc="upper left", fontsize=9)
         plt.grid()
-        # plt.savefig("./options/options_plots/plot.png")
+        plt.savefig("./options/options_plots/plot.png")
         plt.show()
 
 
